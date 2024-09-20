@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Edit Form</title>
+</head>
+<body>
+    <h1 align="center" style="color: red;">Product Edit Form</h1>
+    
+    <h2>
+        <form th:action="@{/editform}" th:object="${product}" method="post">
+            <table align="center" style="color: purple;">
+                <tr>
+                    <td>Product Id</td>
+                    <td>
+                        <!-- Display product ID and keep it in a hidden field for submission -->
+                        <span th:text="${product.productId}"></span>
+                        <input type="hidden" th:field="*{productId}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Product Name</td>
+                    <td><input th:field="*{productName}" /></td>
+                </tr>
+                <tr>
+                    <td>Customer Number</td>
+                    <td><input th:field="*{customerMobile}" /></td>
+                </tr>
+                <tr>
+                    <td>Product Price</td>
+                    <td><input th:field="*{productPrice}" /></td>
+                </tr>
+                <tr>
+                    <td>Product Quantity</td>
+                    <td><input th:field="*{productQuantity}" /></td>
+                </tr>
+                <tr>
+                    <td>Product Total</td>
+                    <td><input th:field="*{productTotal}" /></td>
+                </tr>
+                <tr>
+                    <td>Product Discount</td>
+                    <td><input th:field="*{productDiscount}" /></td>
+                </tr>
+                <tr>
+                    <td>Product Service Charges</td>
+                    <td><input th:field="*{productServiceCharges}" /></td>
+                </tr>
+                <tr>
+                    <td>Product Invoice Amount</td>
+                    <td><input th:field="*{productInvoiceAmount}" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Update" /></td>
+                </tr>
+            </table>
+        </form>
+    </h2>
+    
+    <h2 align="center">
+        <a href="/viewProduct" style="color: red;">View All Products</a>
+    </h2>
+</body>
+</html>

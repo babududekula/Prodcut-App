@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center" style="color: maroon;">
+        &#128526;&#128526;&#128526; Your Product Details Here &#128526;&#128526;&#128526;
+    </h1>
+    
+    <h3>
+        <table align="center" style="color: green;">
+            <tr>
+                <td>Product-Id</td>
+                <td>Product-Name</td>
+                <td>Customer-Mobile</td>
+                <td>Product-Price</td>
+                <td>Product-Quantity</td>
+                <td>Product-Total</td>
+                <td>Product-Discount</td>
+                <td>Product-ServiceCharges</td>
+                <td>Product-InvoiceAmount</td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+            
+            <!-- Thymeleaf's for-each loop -->
+            <tr th:each="product : ${babu}">
+                <td th:text="${product.productId}"></td>
+                <td th:text="${product.productName}"></td>
+                <td th:text="${product.customerMobile}"></td>
+                <td th:text="${product.productPrice}"></td>
+                <td th:text="${product.productQuantity}"></td>
+                <td th:text="${product.productTotal}"></td>
+                <td th:text="${product.productDiscount}"></td>
+                <td th:text="${product.productServiceCharges}"></td>
+                <td th:text="${product.productInvoiceAmount}"></td>
+                <td><a th:href="@{/edit/{productId}(productId=${product.productId})}">Edit</a></td>
+                <td><a th:href="@{/delete/{productId}(productId=${product.productId})}">Delete</a></td>
+            </tr>
+        </table>
+    </h3>
+
+    <h2 align="center">
+        <a href="/home" style="color: red;">Go Home</a>
+    </h2>
+</body>
+</html>
